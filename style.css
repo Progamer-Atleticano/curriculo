@@ -1,0 +1,168 @@
+/* --- ESTILOS BASE (Desktop/Padrão) --- */
+
+body {
+    background-color: linen; /* COR ORIGINAL DO BODY */
+    font-family: sans-serif;
+    margin: 0; 
+    padding: 0 20px; 
+}
+
+header {
+    
+    align-items: center; 
+    background-color: #f4f4f4; /* COR ORIGINAL DO HEADER */
+    border-bottom: 2px solid #ccc;
+    box-sizing: border-box; 
+    width: 100%;
+    margin: 0 -20px; 
+    padding: 20px; 
+    position: relative; /* Necessário para posicionar o botão hambúrguer absoluto */
+     text-align: center; /* Centraliza a foto e os títulos no desktop */
+}
+
+/* Novo estilo para a sua foto de perfil */
+.foto-perfil {
+    width: 150px;       /* Tamanho da foto */
+    height: 150px;      /* Tamanho da foto */
+    border-radius: 50%; /* Transforma a imagem em um círculo */
+    object-fit: cover;  /* Garante que a imagem preencha o círculo sem distorcer */
+    margin-bottom: 15px; /* Espaço entre a foto e o nome */
+    border: 3px solid #333; /* Borda opcional ao redor da foto */
+}
+
+nav {
+    margin-right: auto; 
+}
+
+nav a {
+    color: #333;         
+    text-decoration: none; 
+    margin-right: 15px; 
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes nos títulos para espaçamento */
+.titulo-padrao {
+    color: black;
+    font-size: 2em; /* Tamanho maior para o nome no desktop */
+    text-align: center; /* Centraliza o nome */
+    margin: 0; 
+}
+
+header h2.titulo-padrao {
+    font-size: 1.2em; /* Tamanho do cargo */
+    color: #666;
+    margin-left: 0; /* Centraliza o cargo junto com o nome */
+    margin-top: 5px;
+}
+
+.titulo-padrao1 {
+    color: black;
+    font-size: 2em;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+section {
+    margin-top: 40px; 
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px; 
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px); 
+}
+
+footer p a {
+    color: white; 
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Esconde o checkbox e o label (botão) por padrão no desktop */
+.menu-toggle-checkbox, .menu-toggle-label {
+    display: none;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA CELULARES (RESPONSIVIDADE) --- */
+@media (max-width: 600px) {
+
+        .foto-perfil {
+        margin: 0 auto 15px auto;
+    }
+    
+    /* 1. Ajusta o espaçamento geral para ser menor em mobile */
+    body {
+        padding: 0 10px;
+    }
+
+    /* 2. Mostra o label (o ícone do hambúrguer) e esconde o checkbox no mobile */
+    .menu-toggle-label {
+        display: block; 
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+        z-index: 10;
+    }
+    
+    /* 2. Ajusta o layout do cabeçalho */
+    header {
+        /* ... (seus estilos de header mobile permanecem os mesmos) ... */
+        padding-top: 50px; 
+    }
+
+    /* 4. Estiliza o menu (nav) para o modo hambúrguer */
+    nav {
+        /* ESCONDE O MENU POR PADRÃO NO MOBILE */
+        display: none; 
+        position: absolute;
+        top: 60px; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: #f4f4f4; 
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        flex-direction: column; 
+        z-index: 9;
+    }
+
+    /* Quando o checkbox é marcado (~ indica um "irmão" seguinte), mostre a nav */
+    .menu-toggle-checkbox:checked ~ #menu-nav {
+        display: flex;
+    }
+
+nav a {
+    color: #333;         
+    text-decoration: none; 
+    margin-right: 15px; 
+    font-weight: bold;
+}
+
+    /* 4. Ajusta o footer para o novo espaçamento do body */
+    footer {
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px); 
+    }
+
+    /* 5. Ajustes de fonte para mobile */
+    .titulo-padrao {
+        font-size: 1.5em; 
+    }
+    .titulo-padrao1 {
+        font-size: 1.5em;
+    }
+}
